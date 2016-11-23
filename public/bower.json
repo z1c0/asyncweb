@@ -1,0 +1,21 @@
+{
+  "name": "asyncweb",
+  "authors": [
+    "z1c0 <wziegler@live.at>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "boostrap#^3.3.7",
+    "bootswatch": "^3.3.7"
+  }
+}
