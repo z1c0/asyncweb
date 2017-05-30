@@ -11,7 +11,8 @@
     $(element).text(text);
   }
 
-  function justGet() {
+  function justGet(event) {
+    event.preventDefault();
     showResponse('#get-response');
     $.ajax({
       method: 'GET',
@@ -23,7 +24,8 @@
   };
 
 
-  function setupPoll() {
+  function setupPoll(event) {
+    event.preventDefault();
     showResponse('#poll-response');
     setInterval(function() {
       $.ajax({
@@ -37,7 +39,8 @@
     5000);
   };
 
-  function setupLongPoll() {
+  function setupLongPoll(event) {
+    event.preventDefault();
     showResponse('#longpoll-response');
     var longPoll = function() {
       $.ajax({
@@ -55,7 +58,8 @@
     longPoll();
   };
 
-  function setupPush() {
+  function setupPush(event) {
+    event.preventDefault();
     showResponse('#push-response');
     var xhr = new XMLHttpRequest()
     var pos = 0;
@@ -76,57 +80,3 @@
   });
 
 })();
-
-
-/*
-var hugo = function() {
-  function subscribeNavigationLongPoll() {
-    $(document).ready(function () {
-      var longPoll = function() {
-      }
-      longPoll();
-    });
-  };
-  subscribeNavigationLongPoll();
-
-
-  return {
-    /*
-    setupDataBinding : function(elementName, moduleName, json, updateInterval) {
-      let binding = {
-        update : function(callback) {
-          let viewModel = this.viewModel;
-          $.getJSON(this.updateUrl, function(data) {
-            try {
-              //console.log(data);
-              ko.mapping.fromJS(data, viewModel);
-              if (callback) {
-                callback(viewModel);
-              }
-            }
-            catch (e) {
-              console.log(e);
-            }
-          });
-        }
-      };
-
-      $(function() {
-        binding.updateUrl =  '/' + moduleName + '/api';
-        binding.viewModel = ko.mapping.fromJS(json);
-        const el = document.getElementById(elementName);
-        if (!el) {
-          alert("element '" + elementName + "' not found");
-        }
-        ko.applyBindings(binding.viewModel, el);
-        if (updateInterval > 0) {
-          setIntervalAndExecute(function () {
-            binding.update(null);
-          }, updateInterval);
-        }
-      });
-      return binding;
-    }
-  }
-}();
-*/
